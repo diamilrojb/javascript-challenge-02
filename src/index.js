@@ -7,12 +7,12 @@ const orders = (time, product, table) => {
 	    
     }, time);
    }else{
-     reject(error(`=== Pedido para la ${table} de ${product}, no salió`)
+     reject(error(`=== Pedido para la ${table} de ${product}, no salió`));
    }	  
   });
-};
+}
 
-function randomTime() = { 
+function randomTime() { 
   const max = 8000;
   const min = 1000;
   return Math.floor(Math.random()*(max - min + 1) + min);
@@ -36,9 +36,18 @@ waiter();
 
 
 const waiter2 = () => {
-  orders(randomTime(), menu.hotdog, table[0]).then((res) => console.log(res));
-	return orders(randomTime(), menu.pizza, table[2]).then((res) => console.log(res));
+  orders(randomTime(), menu.hotdog, table[0]).then((res) => console.log(res))
+	return orders(randomTime(), menu.pizza, table[2]).then((res) => console.log(res))
     .catch((err) => console.error(err));
 };
 
 waiter2();
+
+/*const waiter3 = async() => {
+  orders(randomTime(), menu.hamburger, table[1]).then((res) => console.log(res))
+    return orders(randomTime(), menu.hotdog, table[1]).then((res) => console.log(res))
+      orders(randomTime(), menu.pizza, table[1]).then((res) => console.log(res))
+     .catch((err) => console.error(err));
+};
+
+waiter3();*/
